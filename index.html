@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hard Whips Bar</title>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header">
+    <div class="hero-header">
+      <h1 class="hero-image">
+        <picture>
+          <source media="(max-width:750px )" srcset="./img/HardWhipsBar-sp.jpg">
+          <img src="./img/HardWhipsBar-pc.jpg" alt="Hard Whip Bar">
+        </picture>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">MENU</a></li>
+          <li><a href="#">CAST</a></li>
+          <li><a href="#">ACCESS</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="mobileMenu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </header>
+
+  <style>
+    /* ****************************** */
+    /* Reset */
+    /* ****************************** */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      color: #333;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      appearance: none;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    /* ****************************** */
+    /* common */
+    /* ****************************** */
+    body,
+    body a {
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ****************************** */
+    /* header */
+    /* ****************************** */
+    .hero-header img {
+      height: 100vh;
+      height: 100dvh;
+      object-fit: contain;
+    }
+
+    #mobileMenu {
+      display: block;
+      position: fixed;
+      top: 5px;
+      right: 5px;
+      width: 35px;
+      height: 35px;
+      padding: 2.5px;
+      z-index: 100;
+    }
+
+    .hero-header nav {
+      position: fixed;
+      text-align: center;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      background-color: #FBED21;
+      transform: translateX(100vw);
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .hero-header nav ul {
+      margin-top: 40%;
+    }
+
+    .hero-header nav li {
+      margin-top: 20px;
+    }
+
+    .hero-header nav li a {
+
+      font-size: 1.375em;
+      font-weight: 600;
+      text-shadow: 1px 1px 1px #AB272D;
+    }
+
+    #mobileMenu span {
+      display: block;
+      margin-top: 6.75px;
+      width: 30px;
+      height: 1px;
+      background: #333;
+      transition: all 0.4s ease-in-out;
+    }
+
+    #header.open #mobileMenu span:nth-child(1) {
+      transform: translateY(8px) rotate(405deg);
+
+    }
+
+    #header.open #mobileMenu span:nth-child(2) {
+      opacity: 0;
+
+    }
+
+    #header.open #mobileMenu span:nth-child(3) {
+      transform: translateY(-8px) rotate(-405deg);
+    }
+
+    #header.open .hero-header nav {
+      transform: translateX(0);
+      opacity: 0.9;
+    }
+
+    @media screen and (min-width:751px) {
+      .hero-header {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .hero-header img {
+        width: 110%;
+        transform: translateX(-6%);
+      }
+
+      #mobileMenu {
+        display: none;
+      }
+
+      .hero-header nav {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        text-align-last: right;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      .hero-header nav ul {
+        display: flex;
+        margin-top: 0;
+      }
+
+      .hero-header nav li {
+        margin-top: 0;
+      }
+
+      .hero-header nav li a {
+        padding-right: 30px;
+        text-shadow: 1px 1px 1px #FBED21;
+      }
+    }
+  </style>
+  <script>
+    const header = document.getElementById("header")
+    const mobileMenu = document.getElementById("mobileMenu")
+    mobileMenu.addEventListener("click", function () {
+      header.classList.toggle("open")
+    })
+  </script>
+</body>
+
+</html>
